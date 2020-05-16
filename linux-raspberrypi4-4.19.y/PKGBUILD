@@ -23,7 +23,6 @@ options=('!strip')
 source=("git+https://github.com/raspberrypi/linux#branch=rpi-4.19.y"
         'config8.txt'
         'cmdline.txt'
-        'config'
         'config8'
         'linux.preset'
         '60-linux.hook'
