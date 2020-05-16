@@ -2,11 +2,6 @@
 # Contributor: Kevin Mihelich <kevin@archlinuxarm.org>
 # Contributor: Oleg Rakhmanov <oleg@archlinuxarm.org>
 # Maintainer: Simon Gardling <titaniumtown@gmail.com>
-######################################################
-# config for armv7h is not maintained, but is here
-# in case this package needs to be built for armv7h
-# some day
-######################################################
 
 buildarch=12
 
