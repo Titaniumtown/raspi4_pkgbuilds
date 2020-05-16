@@ -15,7 +15,7 @@ _srcname=linux
 _desc="Raspberry Pi 4"
 pkgver=4.19.122.r798163.gf0e620550b8b
 pkgrel=1
-arch=('armv7h' 'aarch64')
+arch=('aarch64')
 url="http://www.kernel.org/"
 license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git')
@@ -48,8 +48,7 @@ pkgver() {
 prepare() {
   cd "${srcdir}/${_srcname}"
 
-  [[ $CARCH == "armv7h" ]]  &&  cat "${srcdir}/config" > ./.config
-  [[ $CARCH == "aarch64" ]] &&  cat "${srcdir}/config8" > ./.config
+  cat "${srcdir}/config8" > ./.config
 
   # add pkgrel to extraversion
   sed -ri "s|^(EXTRAVERSION =)(.*)|\1 \2-${pkgrel}|" Makefile
@@ -85,8 +84,7 @@ build() {
 
   #yes "" | make config
 
-  [[ $CARCH == "armv7h" ]] &&  make ${MAKEFLAGS} zImage modules dtbs
-  [[ $CARCH == "aarch64" ]] &&  make ${MAKEFLAGS} Image modules dtbs
+  make ${MAKEFLAGS} Image modules dtbs
 }
 
 _package() {
@@ -101,8 +99,7 @@ _package() {
 
   cd "${srcdir}/${_srcname}"
 
-  [[ $CARCH == "armv7h" ]] && KARCH=arm
-  [[ $CARCH == "aarch64" ]] && KARCH=arm64
+  KARCH=arm64
   # get kernel version
   _kernver="$(make kernelrelease)"
   _basekernel=${_kernver%%-*}
@@ -112,8 +109,7 @@ _package() {
   make INSTALL_MOD_PATH="${pkgdir}/usr" modules_install
   make INSTALL_DTBS_PATH="${pkgdir}/boot" dtbs_install
 
-  [[ $CARCH == "armv7h" ]] &&  cp arch/$KARCH/boot/zImage "${pkgdir}/boot/kernel7.img"
-  [[ $CARCH == "aarch64" ]] &&  cp arch/$KARCH/boot/Image "${pkgdir}/boot/kernel8.img"
+  cp arch/$KARCH/boot/Image "${pkgdir}/boot/kernel8.img"
   cp arch/$KARCH/boot/dts/overlays/README "${pkgdir}/boot/overlays"
 
   # make room for external modules
@@ -148,8 +144,7 @@ _package() {
     install -Dm644 /dev/stdin "${pkgdir}/usr/share/libalpm/hooks/90-${pkgbase}.hook"
 
   # install boot files
-  [[ $CARCH == "armv7h" ]] && install -m644 ../config.txt "${pkgdir}/boot/config.txt"
-  [[ $CARCH == "aarch64" ]] && install -m644 ../config8.txt "${pkgdir}/boot/config.txt"
+  install -m644 ../config8.txt "${pkgdir}/boot/config.txt"
   install -m644 ../cmdline.txt "${pkgdir}/boot"
 }
 
