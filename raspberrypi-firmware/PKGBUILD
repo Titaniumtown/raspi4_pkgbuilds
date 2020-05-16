@@ -21,14 +21,14 @@ md5sums=('SKIP'
          '72e0d5818fc513ece1b964f25f7e7882')
          
 pkgver() {
-  cd "${srcdir}/${_srcname}"
+  cd ${srcdir}/userland
   git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 
 
 build() {
-  cd ${srcdir}/userland-${_commit}
+  cd ${srcdir}/userland
 
   if [ "${CARCH}" == 'aarch64' ]; then
     cmake -DCMAKE_BUILD_TYPE=Release -DARM64=ON
