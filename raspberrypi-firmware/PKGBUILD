@@ -1,9 +1,10 @@
-# Maintainer: Oleg Rakhmanov <oleg [at] archlinuxarm [dot] org>
+# Contributor: Oleg Rakhmanov <oleg [at] archlinuxarm [dot] org>
+# Maintainer: Simon Gardling <titaniumtown@gmail.com>
+
 
 pkgname=raspberrypi-firmware
 pkgver=20200505
 pkgrel=1
-_commit=5b1ef8b158e6de3e0feb0be2bc8397d6f7e930fe
 pkgdesc="Firmware tools, libraries, and headers for Raspberry Pi"
 arch=('armv6h' 'armv7h' 'aarch64')
 url="https://github.com/raspberrypi/userland"
@@ -12,12 +13,19 @@ makedepends=('cmake')
 replaces=('raspberrypi-firmware-tools')
 provides=('raspberrypi-firmware-tools')
 options=(!strip)
-source=("https://github.com/raspberrypi/userland/archive/${_commit}.tar.gz"
+source=("git+https://github.com/raspberrypi/userland.git"
         "https://raw.githubusercontent.com/raspberrypi/firmware/master/opt/vc/LICENCE"
         '00-raspberrypi-firmware.conf')
-md5sums=('633fab5f368e24158a472ba06d034923'
+md5sums=('SKIP'
          '86e53f5f5909ee66900418028de11780'
          '72e0d5818fc513ece1b964f25f7e7882')
+         
+pkgver() {
+  cd "${srcdir}/${_srcname}"
+  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+
 
 build() {
   cd ${srcdir}/userland-${_commit}
