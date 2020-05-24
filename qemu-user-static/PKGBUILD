@@ -12,7 +12,7 @@ depends=()
 makedepends=(python2 glib2-static pcre-static)
 source=(https://download.qemu.org/qemu-$pkgver.tar.xz{,.sig})
 sha512sums=(
-  '2f13a92a0fa5c8b69ff0796b59b86b080bbb92ebad5d301a7724dd06b5e78cb6'
+  '21ef0cbe107c468a40f0fa2635db2a40048c8790b629dfffca5cd62bb1b502ea8eb133bfc40df5ecf1489e2bffe87f6829aee041cb8a380ff04a8afa23b39fcf'
   'SKIP'
 )
 validpgpkeys=('CEACC9E15534EBABB82D3FA03353C9CEF108B584')
