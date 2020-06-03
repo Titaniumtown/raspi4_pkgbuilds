@@ -37,9 +37,7 @@ pkgver() {
 prepare() {
   cd "${srcdir}/${_srcname}"
 
-   cat "${srcdir}/config8" > ./.config
-
-  patch -Rp1 -i ../disable-gcc-plugins.patch
+   make bcm2711_defconfig
 
   # add pkgrel to extraversion
   sed -ri "s|^(EXTRAVERSION =)(.*)|\1 \2-${pkgrel}|" Makefile
