@@ -16,11 +16,13 @@ license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git')
 options=('!strip')
 source=("git+https://github.com/raspberrypi/linux#branch=rpi-5.7.y"
+	      'config8.txt'
         'cmdline.txt'
         'linux.preset'
         '60-linux.hook'
         '90-linux.hook')
 md5sums=('SKIP'
+         '6925f6423d22390a17ffce189cfe765d'
          '60bc3624123c183305677097bcd56212'
          '86d4a35722b5410e3b29fc92dae15d4b'
          'ce6c81ad1ad1f8b333fd6077d47abdaf'
