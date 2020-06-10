@@ -38,6 +38,7 @@ prepare() {
   cd "${srcdir}/${_srcname}"
 
   make bcm2711_defconfig
+  sed -i 's/CONFIG_PREEMPT=y/CONFIG_PREEMPT_VOLUNTARY=y/g' .config
 
   # add pkgrel to extraversion
   sed -ri "s|^(EXTRAVERSION =)(.*)|\1 \2-${pkgrel}|" Makefile
