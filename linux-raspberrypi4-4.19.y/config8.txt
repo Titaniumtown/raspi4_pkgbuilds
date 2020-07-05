@@ -16,3 +16,5 @@ disable_overscan=1
 #2.147ghz profile:
 #over_voltage=7
 #arm_freq=2147
+
+#gpu_freq=750
