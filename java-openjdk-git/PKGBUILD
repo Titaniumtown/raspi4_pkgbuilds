@@ -69,7 +69,6 @@ build() {
     NUM_PROC_OPT="--with-jobs=${MAKEFLAG_J}"
   fi
 
-  # Avoid optimization of HotSpot to be lowered from O3 to O2
   local _CFLAGS="${CFLAGS} ${CPPFLAGS} -fcommon"
   local _CXXFLAGS="${CXXFLAGS} ${CPPFLAGS} -fcommon"
   
