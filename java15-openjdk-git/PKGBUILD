@@ -264,7 +264,7 @@ package_openjdk15-src-git() {
   pkgdesc="OpenJDK Java ${pkgver} sources"
   # Depends on JDK to get license files
   depends=("jdk15-openjdk-git=${pkgver}")
-  provides=("openjdk-src-git=${pkgver}")
+  provides=("openjdk15-src-git=${pkgver}")
 
   install -Dm 644 -t "${pkgdir}${_jvmdir}/lib" ${_imgdir}/jdk/lib/src.zip
 
