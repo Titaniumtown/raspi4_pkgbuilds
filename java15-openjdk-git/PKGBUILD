@@ -3,7 +3,7 @@
 # Maintainter: Simon Gardling <titaniumtown@gmail.com>
 
 pkgbase=java15-openjdk-git
-pkgname=('jre15-openjdk-headless-git' 'jre15-openjdk-git' 'jdk15-openjdk-git' 'openjdk-src-git')
+pkgname=('jre15-openjdk-headless-git' 'jre15-openjdk-git' 'jdk15-openjdk-git' 'openjdk15-src-git')
 pkgver=jdk.15+34.r4.g846d21961c4
 pkgrel=1
 arch=('x86_64' 'aarch64' 'arm')
