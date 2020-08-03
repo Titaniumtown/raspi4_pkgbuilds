@@ -70,8 +70,9 @@ build() {
   fi
 
   # Avoid optimization of HotSpot to be lowered from O3 to O2
-  local _CFLAGS="${CFLAGS//-O2/-O3} ${CPPFLAGS} -fcommon"
-  local _CXXFLAGS="${CXXFLAGS//-O2/-O3} ${CPPFLAGS} -fcommon"
+  local _CFLAGS="${CFLAGS} ${CPPFLAGS} -fcommon"
+  local _CXXFLAGS="${CXXFLAGS} ${CPPFLAGS} -fcommon"
+  
   local _LDFLAGS=${LDFLAGS}
   if [[ ${CARCH} = i686 ]]; then
     echo "Removing '-fno-plt' from CFLAGS and CXXFLAGS to prevent build fail with this architecture"
@@ -111,7 +112,6 @@ build() {
 
   make images legacy-jre-image
 
-  # https://bugs.openjdk.java.net/browse/JDK-8173610
   find "../${_imgdir}" -iname '*.so' -exec chmod +x {} \;
 }
 
