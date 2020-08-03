@@ -1,10 +1,10 @@
 [Desktop Entry]
-Name=OpenJDK Java 14 Runtime
-Name[fi]=OpenJDK Java 14 - ajonaikainen ympäristö
-Comment=OpenJDK Java 14 Runtime
-Comment[fi]=OpenJDK Java 14 - ajonaikainen ympäristö
+Name=OpenJDK Java-git Runtime
+Name[fi]=OpenJDK Java-git - ajonaikainen ympäristö
+Comment=OpenJDK Java-git Runtime
+Comment[fi]=OpenJDK Java-git - ajonaikainen ympäristö
 Keywords=java;runtime
-Exec=/usr/lib/jvm/java-14-openjdk/bin/java -jar
+Exec=/usr/lib/jvm/java-git-openjdk/bin/java -jar
 Terminal=false
 Type=Application
 Icon=java14-openjdk

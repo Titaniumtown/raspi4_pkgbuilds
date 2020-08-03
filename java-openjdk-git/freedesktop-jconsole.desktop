@@ -1,10 +1,10 @@
 [Desktop Entry]
-Name=OpenJDK Java 14 Console
-Name[fi]=OpenJDK Java 14 - konsoli
-Comment=OpenJDK Java 14 Monitoring & Management Console
-Comment[fi]=OpenJDK Java 14 - valvonta- ja hallintakonsoli
+Name=OpenJDK Java-git Console
+Name[fi]=OpenJDK Java-git - konsoli
+Comment=OpenJDK Java-git Monitoring & Management Console
+Comment[fi]=OpenJDK Java-git - valvonta- ja hallintakonsoli
 Keywords=java;console;monitoring
-Exec=/usr/lib/jvm/java-14-openjdk/bin/jconsole
+Exec=/usr/lib/jvm/java-git-openjdk/bin/jconsole
 Terminal=false
 Type=Application
 Icon=java14-openjdk
