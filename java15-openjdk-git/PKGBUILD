@@ -260,7 +260,7 @@ package_jdk15-openjdk-git() {
   done
 }
 
-package_openjdk-src-git() {
+package_openjdk15-src-git() {
   pkgdesc="OpenJDK Java ${pkgver} sources"
   # Depends on JDK to get license files
   depends=("jdk15-openjdk-git=${pkgver}")
