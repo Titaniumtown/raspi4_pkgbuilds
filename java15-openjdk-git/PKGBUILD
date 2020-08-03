@@ -248,7 +248,7 @@ package_jdk15-openjdk-git() {
   # Icons
   for s in 16 24 32 48; do
     install -Dm 644 \
-      "${srcdir}/${srcdir}/src/java.desktop/unix/classes/sun/awt/X11/java-icon${s}.png" \
+      "${srcdir}/${_jdkdir}/src/java.desktop/unix/classes/sun/awt/X11/java-icon${s}.png" \
       "${pkgdir}/usr/share/icons/hicolor/${s}x${s}/apps/${pkgbase}.png"
   done
 
