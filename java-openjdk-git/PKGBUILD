@@ -51,13 +51,13 @@ _nonheadless=(lib/libawt_xawt.{so,debuginfo}
 
 
 pkgver() {
-    cd "jdk"
+    cd ${_jdkdir}
     git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g;s/^v//'
 }
 
 
 build() {
-  cd "jdk"
+  cd ${_jdkdir}
 
   [[ $CARCH != "aarch64" ]] && export MAKEFLAGS="-j2"
 
@@ -71,6 +71,10 @@ build() {
 
   local _CFLAGS="${CFLAGS} ${CPPFLAGS} -fcommon"
   local _CXXFLAGS="${CXXFLAGS} ${CPPFLAGS} -fcommon"
+  
+  #-O3 to -O2
+  #local _CFLAGS="${CFLAGS//-O2/-O3} ${CPPFLAGS} -fcommon"
+  #local _CXXFLAGS="${CXXFLAGS//-O2/-O3} ${CPPFLAGS} -fcommon"
   
   local _LDFLAGS=${LDFLAGS}
   if [[ ${CARCH} = i686 ]]; then
@@ -244,7 +248,7 @@ package_jdk-openjdk-git() {
   # Icons
   for s in 16 24 32 48; do
     install -Dm 644 \
-      "${srcdir}/jdk-git/src/java.desktop/unix/classes/sun/awt/X11/java-icon${s}.png" \
+      "${srcdir}/jdk/src/java.desktop/unix/classes/sun/awt/X11/java-icon${s}.png" \
       "${pkgdir}/usr/share/icons/hicolor/${s}x${s}/apps/${pkgbase}.png"
   done
 
