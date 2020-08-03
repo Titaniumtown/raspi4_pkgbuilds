@@ -119,7 +119,7 @@ build() {
 }
 
 check() {
-  cd jdk
+  cd ${_jdkdir}
 }
 
 package_jre15-openjdk-headless-git() {
