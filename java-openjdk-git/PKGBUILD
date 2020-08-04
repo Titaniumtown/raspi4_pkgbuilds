@@ -18,9 +18,9 @@ source=("git+https://github.com/openjdk/jdk"
         freedesktop-jconsole.desktop
         freedesktop-jshell.desktop)
 sha256sums=('SKIP'
-            '165273caba29f70496e697c9ed5bf61a4322ab324888f78559820f0032df48c9'
-            '1e3decf29075b6f62238a5b2ac537679f00c185ce36d83db254004237cfe7084'
-            '676c74c8aed53d6cd4c4755ece2b2e3ab1a72b1bd2ef53983dcad0229d91af3c')
+            'SKIP'
+            'SKIP'
+            'SKIP')
 
 case "${CARCH}" in
   x86_64) _JARCH='x86_64';;
