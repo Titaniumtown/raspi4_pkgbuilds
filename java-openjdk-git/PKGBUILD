@@ -4,7 +4,7 @@
 
 pkgbase=java-openjdk-git
 pkgname=('jre-openjdk-headless-git' 'jre-openjdk-git' 'jdk-openjdk-git' 'openjdk-src-git')
-pkgver=jdk.16+9.r212.g97f8261e419
+pkgver=jdk.16+9.r314.gde49337060e
 pkgrel=1
 arch=('x86_64' 'aarch64' 'arm')
 url='https://openjdk.java.net/'
@@ -107,6 +107,7 @@ build() {
     --with-lcms=system \
     --with-zlib=system \
     --with-jvm-features=zgc \
+    --with-memory-size="4G" \
     --enable-unlimited-crypto \
     --disable-warnings-as-errors \
     --with-jvm-variants=$_variants \
