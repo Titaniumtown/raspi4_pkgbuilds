@@ -98,9 +98,9 @@ build() {
     --with-version-pre="" \
     --with-version-opt="" \
     --with-stdc++lib=dynamic \
-    --with-extra-cflags="${_CFLAGS}" \
-    --with-extra-cxxflags="${_CXXFLAGS}" \
-    --with-extra-ldflags="${_LDFLAGS}" \
+    --with-extra-cflags="${CFLAGS}" \
+    --with-extra-cxxflags="${CXXFLAGS}" \
+    --with-extra-ldflags="${LDFLAGS}" \
     --with-libjpeg=system \
     --with-giflib=system \
     --with-libpng=system \
