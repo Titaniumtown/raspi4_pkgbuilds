@@ -4,7 +4,7 @@
 
 pkgbase=java-openjdk-git
 pkgname=('jre-openjdk-headless-git' 'jre-openjdk-git' 'jdk-openjdk-git' 'openjdk-src-git')
-pkgver=jdk.16+20.r21.g546620bb9ee
+pkgver=jdk.16+20.r35.g0b3e6c51bae
 pkgrel=1
 arch=('x86_64' 'aarch64' 'arm')
 url='https://openjdk.java.net/'
@@ -98,9 +98,9 @@ build() {
     --with-version-pre="" \
     --with-version-opt="" \
     --with-stdc++lib=dynamic \
-    --with-extra-cflags="${_CFLAGS}" \
-    --with-extra-cxxflags="${_CXXFLAGS}" \
-    --with-extra-ldflags="${_LDFLAGS}" \
+    --with-extra-cflags="${CFLAGS}" \
+    --with-extra-cxxflags="${CXXFLAGS}" \
+    --with-extra-ldflags="${LDFLAGS}" \
     --with-libjpeg=system \
     --with-giflib=system \
     --with-libpng=system \
