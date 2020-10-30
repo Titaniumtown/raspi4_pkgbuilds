@@ -95,6 +95,7 @@ build() {
 
   bash configure \
     --with-boot-jdk="${curr_jdk}" \
+    --with-jvm-features=link-time-opt \
     --with-version-pre="" \
     --with-version-opt="" \
     --with-stdc++lib=dynamic \
