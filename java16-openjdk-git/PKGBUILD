@@ -2,9 +2,9 @@
 # Contributor: Guillaume ALAUX <guillaume@archlinux.org>
 # Maintainter: Simon Gardling <titaniumtown@gmail.com>
 
-pkgbase=java-openjdk-git
-pkgname=('jre-openjdk-headless-git' 'jre-openjdk-git' 'jdk-openjdk-git' 'openjdk-src-git')
-pkgver=jdk.17+2.r110.gfda09434191
+pkgbase=java16-openjdk-git
+pkgname=('jre16-openjdk-headless-git' 'jre16-openjdk-git' 'jdk16-openjdk-git' 'openjdk16-src-git')
+pkgver=jdk.16+30.r2.g23b83c518da
 pkgrel=1
 arch=('x86_64' 'aarch64' 'arm')
 url='https://openjdk.java.net/'
@@ -13,7 +13,7 @@ makedepends=('java-environment>=11' 'cpio' 'unzip' 'zip' 'libelf' 'libcups' 'lib
              'libxrender' 'libxtst' 'libxt' 'libxext' 'libxrandr' 'alsa-lib'
              'graphviz' 'freetype2' 'libjpeg-turbo' 'giflib' 'libpng' 'lcms2'
              'libnet' 'bash')
-source=("git+https://github.com/openjdk/jdk"
+source=("git+https://github.com/openjdk/jdk16"
         freedesktop-java.desktop
         freedesktop-jconsole.desktop
         freedesktop-jshell.desktop)
@@ -29,8 +29,8 @@ case "${CARCH}" in
   aarch64) _JARCH='aarch64';;
 esac
 
-_jvmdir=/usr/lib/jvm/java-git-openjdk
-_jdkdir=jdk
+_jvmdir=/usr/lib/jvm/java-16-git-openjdk
+_jdkdir=jdk16
 
 
 
@@ -108,7 +108,6 @@ build() {
     --with-lcms=system \
     --with-zlib=system \
     --with-jvm-features=zgc \
-    --with-memory-size="4G" \
     --enable-unlimited-crypto \
     --disable-warnings-as-errors \
     --with-jvm-variants=$_variants \
@@ -121,14 +120,14 @@ build() {
 }
 
 check() {
-  cd jdk
+  cd ${_jdkdir}
 }
 
-package_jre-openjdk-headless-git() {
+package_jre16-openjdk-headless-git() {
   pkgdesc="OpenJDK Java ${pkgver} headless runtime environment"
   depends=('java-runtime-common>=3' 'ca-certificates-utils' 'nss' 'libjpeg-turbo' 'lcms2' 'libnet' 'freetype2')
   optdepends=('java-rhino: for some JavaScript support')
-  provides=("java-runtime-headless-git=${pkgver}" "java-runtime-headless-openjdk-git=${pkgver}" "jre-openjdk-headless-git=${pkgver}")
+  provides=("java16-runtime-headless-git=${pkgver}" "java16-runtime-headless-openjdk-git=${pkgver}" "jre16-openjdk-headless-git=${pkgver}")
   backup=(etc/${pkgbase}/logging.properties
           etc/${pkgbase}/management/jmxremote.access
           etc/${pkgbase}/management/jmxremote.password.template
@@ -183,13 +182,13 @@ package_jre-openjdk-headless-git() {
   ln -sf /etc/ssl/certs/java/cacerts "${pkgdir}${_jvmdir}/lib/security/cacerts"
 }
 
-package_jre-openjdk-git() {
+package_jre16-openjdk-git() {
   pkgdesc="OpenJDK Java ${pkgver} full runtime environment"
-  depends=("jre-openjdk-headless-git=${pkgver}" 'giflib')
+  depends=("jre16-openjdk-headless-git=${pkgver}" 'giflib')
   optdepends=('alsa-lib: for basic sound support'
               'gtk2: for the Gtk+ 2 look and feel - desktop usage'
               'gtk3: for the Gtk+ 3 look and feel - desktop usage')
-  provides=("java-runtime-git=${pkgver}" "java-runtime-openjdk-git=${pkgver}" "jre-openjdk-git=${pkgver}")
+  provides=("java-runtime-git=${pkgver}" "java-runtime-openjdk-git=${pkgver}" "jre16-openjdk-git=${pkgver}")
   install=install_jre-openjdk.sh
 
   cd ${_imgdir}/jre
@@ -205,10 +204,10 @@ package_jre-openjdk-git() {
   ln -s ${pkgbase} "${pkgdir}/usr/share/licenses/${pkgname}"
 }
 
-package_jdk-openjdk-git() {
+package_jdk16-openjdk-git() {
   pkgdesc="OpenJDK Java ${pkgver} development kit"
-  depends=("jre-openjdk-git=${pkgver}" 'java-environment-common=3' 'hicolor-icon-theme' 'libelf')
-  provides=("java-environment-git=${pkgver}" "java-environment-openjdk-git=${pkgver}" "jdk-openjdk-git=${pkgver}")
+  depends=("jre16-openjdk-git=${pkgver}" 'java-environment-common=3' 'hicolor-icon-theme' 'libelf')
+  provides=("java-environment-git=${pkgver}" "java-environment-openjdk-git=${pkgver}" "jdk16-openjdk-git=${pkgver}")
   install=install_jdk-openjdk.sh
 
   cd ${_imgdir}/jdk
@@ -250,7 +249,7 @@ package_jdk-openjdk-git() {
   # Icons
   for s in 16 24 32 48; do
     install -Dm 644 \
-      "${srcdir}/jdk/src/java.desktop/unix/classes/sun/awt/X11/java-icon${s}.png" \
+      "${srcdir}/${_jdkdir}/src/java.desktop/unix/classes/sun/awt/X11/java-icon${s}.png" \
       "${pkgdir}/usr/share/icons/hicolor/${s}x${s}/apps/${pkgbase}.png"
   done
 
@@ -262,11 +261,11 @@ package_jdk-openjdk-git() {
   done
 }
 
-package_openjdk-src-git() {
+package_openjdk16-src-git() {
   pkgdesc="OpenJDK Java ${pkgver} sources"
   # Depends on JDK to get license files
-  depends=("jdk-openjdk-git=${pkgver}")
-  provides=("openjdk-src-git=${pkgver}")
+  depends=("jdk16-openjdk-git=${pkgver}")
+  provides=("openjdk16-src-git=${pkgver}")
 
   install -Dm 644 -t "${pkgdir}${_jvmdir}/lib" ${_imgdir}/jdk/lib/src.zip
 
