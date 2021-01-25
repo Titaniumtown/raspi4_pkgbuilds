@@ -13,7 +13,7 @@ makedepends=('java-environment>=11' 'cpio' 'unzip' 'zip' 'libelf' 'libcups' 'lib
              'libxrender' 'libxtst' 'libxt' 'libxext' 'libxrandr' 'alsa-lib'
              'graphviz' 'freetype2' 'libjpeg-turbo' 'giflib' 'libpng' 'lcms2'
              'libnet' 'bash')
-source=("git+https://github.com/openjdk/jdk16"
+source=("git+https://github.com/openjdk/jdk16u"
         freedesktop-java.desktop
         freedesktop-jconsole.desktop
         freedesktop-jshell.desktop)
@@ -30,7 +30,7 @@ case "${CARCH}" in
 esac
 
 _jvmdir=/usr/lib/jvm/java-16-git-openjdk
-_jdkdir=jdk16
+_jdkdir=jdk16u
 
 
 
