@@ -7,11 +7,13 @@ java15-openjdk-git/java15-openjdk-git.used
 java15-openjdk-git/jdk15
 java15-openjdk-git/src
 java15-openjdk-git/pkg
+java15-openjdk-git/jdk15u
 
 java16-openjdk-git/java16-openjdk-git.used
 java16-openjdk-git/jdk16
 java16-openjdk-git/src
 java16-openjdk-git/pkg
+java16-openjdk-git/jdk16u
 
 linux-raspberrypi4-*/linux
 linux-raspberrypi4-*/pkg
