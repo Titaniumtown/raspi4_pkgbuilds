@@ -4,7 +4,7 @@
 
 pkgbase=java16-openjdk-git
 pkgname=('jre16-openjdk-headless-git' 'jre16-openjdk-git' 'jdk16-openjdk-git' 'openjdk16-src-git')
-pkgver=jdk.16+29.r137.g4ccaf6b8c28
+pkgver=jdk.16+29.r145.g6c6c6e6784c
 pkgrel=1
 arch=('x86_64' 'aarch64' 'arm')
 url='https://openjdk.java.net/'
