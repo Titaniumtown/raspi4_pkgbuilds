@@ -9,5 +9,5 @@ Arch Linux repo: (Built on raspberry pi 4, aarch64)
 ```
 [raspi_aarch64]
 SigLevel = Optional
-Server = http://www.gardling.com/my_repo/aarch64/
+Server = https://www.gardling.com/my_repo/aarch64/
 ```
