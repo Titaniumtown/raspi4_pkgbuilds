@@ -38,7 +38,17 @@ prepare() {
   cd "${srcdir}/${_srcname}"
 
   make bcm2711_defconfig
-  echo "CONFIG_PREEMPT_VOLUNTARY=y" >> .config
+  echo "CONFIG_PREEMPT_VOLUNTARY=y" >> .config #for zfs compat
+
+  echo "CONFIG_HUGETLBFS=y" >> .config
+  echo "CONFIG_TRANSPARENT_HUGEPAGE=y" >> .config
+  echo "CONFIG_CGROUP_HUGETLB=y" >> .config
+  echo "CONFIG_TRANSPARENT_HUGEPAGE_MADVISE=y" >> .config
+  echo "CONFIG_TRANSPARENT_HUGEPAGE_ALWAYS=n" >> .config
+  echo "CONFIG_HUGETLB_PAGE_FREE_VMEMMAP=y" >> .config
+  echo "CONFIG_HUGETLB_PAGE=y" >> .config
+  echo "CONFIG_READ_ONLY_THP_FOR_FS=y" >> .config
+  echo "CONFIG_ARCH_ENABLE_HUGEPAGE_MIGRATION=y" >> .config
 
   # add pkgrel to extraversion
   sed -ri "s|^(EXTRAVERSION =)(.*)|\1 \2-${pkgrel}|" Makefile
@@ -74,7 +84,7 @@ build() {
 
   #yes "" | make config
 
-   make ${MAKEFLAGS} Image modules dtbs
+  make ${MAKEFLAGS} Image modules dtbs
 }
 
 _package() {
