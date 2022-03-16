@@ -5,17 +5,17 @@
 
 buildarch=12
 
-pkgbase=linux-raspberrypi4-5.15.y
+pkgbase=linux-raspberrypi4-5.16.y
 _srcname=linux
 _desc="Raspberry Pi 4"
-pkgver=5.15.28.r1050135.g82550f1980ea
+pkgver=5.17.0.rc8.r1075059.g508737d0f609
 pkgrel=1
 arch=('aarch64')
 url="http://www.kernel.org/"
 license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git')
 options=('!strip')
-source=("git+https://github.com/raspberrypi/linux#branch=rpi-5.15.y"
+source=("git+https://github.com/raspberrypi/linux#branch=rpi-5.17.y"
         'config8.txt'
         'cmdline.txt'
         'linux.preset'
